@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 48" width="230" height="48" role="img" aria-label="BIZORA">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14677D"/><stop offset="1" stop-color="#0B3C49"/></linearGradient></defs>
+<rect width="48" height="48" rx="12" fill="url(#g)"/>
+<circle cx="24" cy="24" r="12" fill="none" stroke="#fff" stroke-width="3.2"/>
+<path d="M17 31 33 15M24 15h9v9" fill="none" stroke="#F4A300" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="34" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="30" font-weight="800" letter-spacing="-0.5" fill="#0B3C49">BIZ<tspan fill="#F4A300">O</tspan>RA</text>
+</svg>
