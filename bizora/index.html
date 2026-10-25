@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BIZORA – Discover and grow businesses</title>
+<meta name="theme-color" content="#0B3C49">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css"></head><body>
+<div id="deviceLock" aria-live="polite"><div class="panel"><h2>Tablet and desktop only</h2><p>This app is optimized for tablet and desktop screens. Please open it on a larger device to continue.</p></div></div>
+<header class="top wrap">
+ <a class="logo" href="#/home" aria-label="BIZORA home"><img src="favicon.svg" width="38" height="38" alt=""><span>BIZ<i>O</i>RA</span></a>
+ <nav id="tabs" aria-label="Main">
+  <a href="#/home" data-v="home"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>Home</a>
+  <a href="#/discover" data-v="discover"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Discover</a>
+  <a href="#/biz" data-v="biz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg>Businesses</a>
+  <a href="#/saved" data-v="saved"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>Saved</a>
+  <a href="#/account" data-v="account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+ </nav>
+ <button class="pbtn" id="profileBtn" type="button" aria-label="Account"></button>
+</header>
+
+<main class="wrap">
+<section id="v-home" class="view">
+ <div class="hero"><h1>Find it. Promote it. Grow it.</h1>
+ <p>BIZORA connects people with businesses anywhere in the world and helps owners get found.</p>
+ <form class="search" id="hform" role="search"><input id="hq" type="search" placeholder="Search a business, service or product" aria-label="Search"><button class="btn pri" type="submit">Search</button></form></div>
+ <div class="chips" id="hchips" role="group" aria-label="Categories"></div>
+ <div class="cta"><div><strong>Own a business?</strong><div class="meta">Get found by customers around the world. Listing is free.</div></div><button class="btn ink" id="homeCta" type="button">List your business</button></div>
+ <div class="feature-banner" aria-live="polite">
+  <div class="feature-header">
+   <div>
+    <span class="eyebrow">Top businesses</span>
+    <h2>Trending picks for growth</h2>
+   </div>
+   <div class="feature-nav" aria-label="Featured businesses controls">
+    <button type="button" class="feature-arrow" data-banner-dir="prev" aria-label="Previous business">‹</button>
+    <button type="button" class="feature-arrow" data-banner-dir="next" aria-label="Next business">›</button>
+   </div>
+  </div>
+  <div class="feature-track" id="featuredBanner"></div>
+  <div class="feature-dots" id="featuredDots" aria-label="Featured business selection"></div>
+ </div>
+ <h2 class="sec">Global businesses</h2><div class="meta" id="wcount"></div><div class="chips" id="wpills"></div><div class="grid" id="rWorld"></div>
+ <h2 class="sec">Promoted</h2><div class="grid" id="rPromo"></div>
+ <h2 class="sec">Top rated</h2><div class="grid" id="rTop"></div>
+ <h2 class="sec">New on BIZORA</h2><div class="grid" id="rNew"></div>
+ <p><a class="btn" href="#/discover">Browse everything</a></p>
+</section>
+
+<section id="v-discover" class="view" hidden>
+ <h1 class="pt">Discover</h1>
+ <div class="search" role="search">
+  <input id="q" type="search" placeholder="Search a business, service or product" aria-label="Search">
+  <label class="field-label" for="country">Worldwide</label>
+  <select id="country" aria-label="Country"></select>
+  <label class="field-label" for="city">City</label>
+  <select id="city" aria-label="City"><option value="">All cities</option></select>
+ </div>
+ <div class="chips" id="chips" role="group" aria-label="Categories"></div>
+ <div class="bar"><label><input type="checkbox" id="fv"> Verified only</label>
+ <span><label for="so">Sort</label> <select id="so"><option value="rec">Recommended</option><option value="rt">Top rated</option><option value="nw">Newest</option></select></span></div>
+ <div class="meta" id="count" aria-live="polite"></div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section id="v-biz" class="view" data-auth hidden>
+ <h1 class="pt">Businesses</h1>
+ <div class="gate"><p>Sign in to list and manage your businesses.</p><button class="btn pri" type="button" data-auth>Sign in or create account</button></div>
+ <div class="gated" hidden>
+  <div class="stats" id="stats"></div>
+  <p><button class="btn pri" id="addBtn" type="button">List a new business</button></p>
+  <div id="mineList"></div>
+ </div>
+</section>
+
+<section id="v-saved" class="view" data-auth hidden>
+ <h1 class="pt">Saved</h1>
+ <div class="gate"><p>Sign in to keep a list of the businesses you like.</p><button class="btn pri" type="button" data-auth>Sign in or create account</button></div>
+ <div class="gated" hidden><div class="grid" id="savedGrid"></div></div>
+</section>
+
+<section id="v-account" class="view" data-auth hidden>
+ <h1 class="pt">Account</h1>
+ <div class="gate"><p>Sign in to create and edit your profile.</p><button class="btn pri" type="button" data-auth>Sign in or create account</button></div>
+ <div class="gated" hidden>
+  <form class="f acct" id="pForm">
+   <div class="row"><div class="av big" id="pAv"></div><label class="btn">Change photo<input type="file" id="avatar" accept="image/*" hidden></label></div>
+   <input id="pname" placeholder="Full name" required>
+   <textarea id="pbio" rows="3" placeholder="About you or your work"></textarea>
+   <input id="pphone" placeholder="Phone (with country code)" inputmode="tel">
+   <select id="pcountry" aria-label="Country"></select>
+   <input id="pcity" list="pcl" placeholder="City"><datalist id="pcl"></datalist>
+   <div class="meta" id="pemail"></div>
+   <div class="acts"><button class="btn pri" type="submit">Save profile</button><button class="btn" type="button" id="mOut">Sign out</button></div>
+  </form>
+
+  <div class="settings-card">
+   <h2 class="sec">Settings</h2>
+   <form id="settingsForm" class="settings-form">
+    <label class="field-wrap">
+     <span>Theme</span>
+     <select id="themeSelect">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="royal">Royal</option>
+     </select>
+    </label>
+    <label class="field-wrap">
+     <span>Display</span>
+     <select id="densitySelect">
+      <option value="comfortable">Comfortable</option>
+      <option value="compact">Compact</option>
+     </select>
+    </label>
+    <label class="check-row"><input id="notificationsToggle" type="checkbox"> Enable alerts</label>
+    <label class="check-row"><input id="emailUpdatesToggle" type="checkbox"> Email updates</label>
+    <div class="acts">
+     <button class="btn pri" type="submit">Save settings</button>
+     <button class="btn" type="button" id="resetSettingsBtn">Reset</button>
+    </div>
+   </form>
+  </div>
+
+  <h2 class="sec">My listings</h2><div id="acctList"></div>
+  <p><a class="btn" href="#/biz">Manage all listings</a></p>
+ </div>
+</section>
+</main>
+<footer class="foot"><div class="in">
+ <div class="brand"><div class="logo"><img src="favicon.svg" width="38" height="38" alt=""><span>BIZ<i>O</i>RA</span></div><p>Discover, advertise and grow businesses anywhere in the world.</p></div>
+ <div><h4>Explore</h4><a href="#/home">Home</a><a href="#/discover">Discover</a><a href="#/saved">Saved</a><a href="#/account">Account</a></div>
+ <div><h4>For businesses</h4><button class="fl" id="fAdd" type="button">List your business</button><a href="#/biz">My businesses</a></div>
+ <div><h4>Company</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div>
+</div><div class="base"><span>© <span id="yr"></span> BIZORA. All rights reserved.</span><span>Made for businesses everywhere.</span></div></footer>
+
+<dialog id="dAuth"><div class="dlg"><h2 id="authTitle">Sign in</h2>
+<form class="f" id="authForm">
+ <div id="nameRow" hidden><input id="fname" placeholder="Your name" autocomplete="name"></div>
+ <input id="email" type="email" placeholder="Email" required autocomplete="email">
+ <input id="pw" type="password" placeholder="Password (6+ characters)" required minlength="6" autocomplete="current-password">
+ <button class="btn pri" id="authGo" type="submit">Sign in</button>
+</form>
+<button class="btn" id="google" type="button">Continue with Google</button>
+<button class="link" id="authToggle" type="button">New here? Create an account</button>
+<button class="btn" type="button" data-close>Close</button></div></dialog>
+
+<dialog id="dListing"><div class="dlg"><h2 id="lTitle">List your business</h2>
+<form class="f" id="lForm"><input type="hidden" id="lid">
+ <input id="lname" placeholder="Business name" required>
+ <select id="lcat" required aria-label="Category"></select>
+ <select id="lcountry" required aria-label="Country"></select>
+ <input id="lcity" list="cl" placeholder="City" required><datalist id="cl"></datalist>
+ <input id="lphone" placeholder="Phone / WhatsApp with country code" required inputmode="tel">
+ <input id="lweb" type="url" placeholder="Website (optional)">
+ <input id="lhours" placeholder="Opening hours, e.g. Mon-Sat 8am-6pm">
+ <textarea id="ldesc" rows="3" placeholder="What do you offer?" required></textarea>
+ <div class="acts"><button class="btn pri" type="submit">Publish</button><button class="btn" type="button" data-close>Cancel</button></div>
+</form></div></dialog>
+<dialog id="dBiz"></dialog>
+
+<button class="btn ink" id="chatb" type="button">Ask ZORA AI</button>
+<div id="chat" role="dialog" aria-label="ZORA assistant"><header>ZORA AI</header><div id="msgs"></div>
+<div class="qs" id="qs"></div>
+<form id="cf"><input id="ci" placeholder="Ask about BIZORA or your business" aria-label="Message"><button class="btn pri" type="submit">Send</button></form></div>
+<div id="toast" role="status" hidden></div>
+<script type="module" src="app.js"></script>
+</body></html>
