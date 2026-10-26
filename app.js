@@ -71,7 +71,7 @@ document.addEventListener("click", e => {
     const dialog = closeTarget.closest("dialog");
     if (dialog && typeof dialog.close === "function") dialog.close();
   }
-  const authTarget = e.target.closest("[data-auth]");
+ const authTarget = e.target.closest("button[data-auth]");
   if (authTarget) openAuth("in");
   const navLink = e.target.closest("[data-v]");
   if (navLink && navLink.matches("a") && navLink.getAttribute("href")?.startsWith("#/")) {
